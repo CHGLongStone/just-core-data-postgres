@@ -15,8 +15,9 @@ use JCORE\EXCEPTION\DATA_Exception as DATA_Exception;
 class POSTGRES_TABLE_META{
 	
 	/**
+	* dbType
 	 * @access private 
-	 * @var string $dbType
+	 * @var string
 	 */
 	private $dbType = 'POSTGRES';
 	
