@@ -18,7 +18,7 @@
 	"homepage" : "https://github.com/CHGLongStone/just-core-data-postgres",
 	"require" : {
 		"php" : ">=5.3.3",
-		"just-core/foundation" : "dev-master",
+		"just-core/foundation" : "dev-master"
 	},
 	"suggest": {
 		"just-core/foundation": "PHP Enterprise (HA) High Availability Framework, develop quick and simple, deploy quick and consistent",
