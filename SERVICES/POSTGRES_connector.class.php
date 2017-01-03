@@ -1,6 +1,6 @@
 <?php
 /**
- * MySQL_connector
+ * POSTGRES_connector
  * 
  *
  * @author		Jason Medland<jason.medland@gmail.com>
@@ -12,13 +12,14 @@ namespace JCORE\DATA\API\MySQL;
 use JCORE\EXCEPTION\DATA_Exception as DATA_Exception;
 use JCORE\EXCEPTION\networkException as networkException;
 /**
- * Interface MySQL_connector
+ * class POSTGRES_connector
+ * 
  *
  * @package JCORE\DATA\API\POSTGRES
 */
 class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	/**
-	 * The data base "dbType" MYSQL/POSTGRES/...
+	 * The data base "dbType" MYSQL-POSTGRES-...
 	 * @access private 
 	 * @var string
 	 */
@@ -79,8 +80,8 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	/**
 	 * Constructor
 	 * 
-	 * @param	array $value (connection info)
-	 * @param	bool $persistent
+	 * @param	array value (connection info)
+	 * @param	bool persistent
 	 * @return	NULL
 	 */
 	public function __construct($DSN, $config){
@@ -128,16 +129,17 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	/***
 	* DESCRIPTOR: Get the "private" dbType
 	* @param	NULL
-	* @return string $dbType 
+	* @return string dbType 
 	*/
 	public function getDbType(){
 		return $this->dbType;
 	}
 	/**
 	* DESCRIPTOR: This sets a connection resource
-	* @param bool/string $persistent  pass TRUE/FALSE OR 'true' from ini [config.dbConnectionPool.ini]
+	* pass TRUE/FALSE OR 'true' from ini [config.dbConnectionPool.ini]
+	*
+	* @param mixed persistent  
 	* @return NULL 
-	** done
 	*/
 	public function set_connection($persistent=NULL){
 		#echo __METHOD__.__LINE__.'<br>';
@@ -233,8 +235,8 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	
 	/**
 	* DESCRIPTOR: This checks if a connection resource is persistent
-	* @param NULL
-	* @return bool  $this->persistent
+	* @param null 
+	* @return bool  
 	*/
 	public function is_persistent(){
 		#echo __METHOD__.__LINE__.'<br>';
@@ -243,9 +245,9 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	//----------------------------------------------------
 	/**
 	* DESCRIPTOR: VERIFIES A CONNECTION
-	* @param ignored $paramie 
-	* @return NULL 
-	** done
+	* 
+	* @param null 
+	* @return bool  
 	*/
 	public function verify_connection(){
 		#echo __METHOD__.__LINE__.'<br>';
@@ -260,13 +262,15 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	//echo __METHOD__.__LINE__.'<br>'.'****************(query='.$query.' returnArray='.$returnArray.')'.'<br>';
 	//----------------------------------------------------
 	/**
-	* DESCRIPTOR: coverts a POSTGRES result to an array
-	* @param resource $result 
-	* @param string $query
+	* DESCRIPTOR: converts a POSTGRES result to an array
+	* @param resource result 
+	* @param string query
 	* would rather not send the query (its unneeded for functionality)
 	* but we do want to know what happened if the convert to array failed
 	* 
-	* @return array  $result
+	* @param mixed result
+	* @param string query
+	* @return array  
 	*/
 	public function resultToAssoc($result, $query){ ///, $DSN, $resultType = 'POSTGRES'
 		#echo __METHOD__.__LINE__.'<br>';
@@ -306,9 +310,11 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	/**
 	* DESCRIPTOR: EXECUTE A QUERY
 	* exception handling and logging dealt with
+	* 
+	* @access public
 	* @param string $database 
 	* @param string $query 
-	* @return $result 
+	* @return result 
 	*/
 	public function raw($query){//, $returnArray=false
 		#echo __METHOD__.__LINE__.'<br>';
@@ -352,12 +358,13 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	
 	/**
 	* DESCRIPTOR: EXECUTE A SELECT
-	* if $args["returnArray"] === true the function will return the result
+	* if args["returnArray"] === true the function will return the result
 	* as a PHP array
-	* @param string $database 
-	* @param string $query 
-	* @param bool $returnArray 
-	* @return $result 
+	* 
+	* @access public
+	* @param string query 
+	* @param array args 
+	* @return result 
 	*/
 	public function retrieve($query, $args=false){
 		#echo __METHOD__.__LINE__.'<br>';
@@ -379,11 +386,13 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	}
 	/**
 	* DESCRIPTOR: EXECUTE AN UPDATE
-	* if $args["returnArray"] === true the function will return the number of 
+	* if args["returnArray"] === true the function will return the number of 
 	* affected rows as well as the "pg_last_notice" from the query
-	* @param string $query 
-	* @param array $args 
-	* @return $result 
+	* 
+	* @access public
+	* @param string query 
+	* @param array args 
+	* @return result 
 	*/
 	public function update($query, $args=false){
 		#echo __METHOD__.__LINE__.'<br>';
@@ -407,9 +416,11 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	* DESCRIPTOR: EXECUTE AN INSERT
 	* if $args["returnArray"] === true the function will return the "pg_last_oid"
 	* the number of "pg_affected_rows" as well as the "pg_last_notice " from the query
-	* @param string $query 
-	* @param array $args 
-	* @return $result 
+	* 
+	* @access public
+	* @param string query 
+	* @param array args 
+	* @return result 
 	*/
 	public function create($query, $args = false){
 		#echo __METHOD__.__LINE__.'<br>';
@@ -431,11 +442,13 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	
 	/**
 	* DESCRIPTOR: EXECUTE A DELETE
-	* if $args["returnArray"] === true the function will return the number of 
+	* if args["returnArray"] === true the function will return the number of 
 	* affected rows as well as the "pg_last_notice " from the query
-	* @param string $query 
-	* @param array $args 
-	* @return bool/array $result 
+	* 
+	* @access public
+	* @param string query 
+	* @param array args 
+	* @return array
 	*/
 	public function delete($query, $args = false){
 		#echo __METHOD__.__LINE__.'<br>';
@@ -454,7 +467,13 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 		return $result;
 	}
 	
-	
+	/**
+	* DESCRIPTOR: __destruct
+	*
+	* @access public
+	* @param null
+	* @return null
+	*/
 	function __destruct(){
 		#echo __METHOD__.__LINE__.'<br>';
 		$this->logger->log(LOG_DEBUG,__METHOD__, '()');
