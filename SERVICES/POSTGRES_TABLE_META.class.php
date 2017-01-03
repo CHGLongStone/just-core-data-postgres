@@ -1,6 +1,6 @@
 <?php
 /**
- * Class
+ * POSTGRES_TABLE_META
  * @author		Jason Medland<jason.medland@gmail.com>
  * @package		JCORE
  * @subpackage	DATA\API
@@ -21,25 +21,29 @@ class POSTGRES_TABLE_META{
 	private $dbType = 'POSTGRES';
 	
 	/**
+	* tableName
 	 * @access public 
 	 * @var string
 	 */
 	public $tableName = NULL;
 	
 	/**
+	* Data Source Name
 	 * @access public 
 	 * @var string
 	 */
 	public $DSN = NULL;
 	
 	/**
-	 * @access protected 
+	* tableProperties
+	 * @access public 
 	 * @var string
 	 */
 	public $tableProperties = NULL; //array();
 	
 	/**
-	 * @access protected 
+	* connectionObject
+	 * @access public 
 	 * @var string
 	 */
 	public $connectionObject = NULL; //array();
@@ -48,6 +52,8 @@ class POSTGRES_TABLE_META{
 	/**
 	 * Constructor
 	 * 
+	 * @access public
+	 * @param null
 	 * @return	NULL
 	 */
 	public function __construct(){
@@ -62,6 +68,8 @@ class POSTGRES_TABLE_META{
 	}
 	/**
 	* DESCRIPTOR: unsets internal properties
+	*
+	* @access public
 	* @param	NULL
 	* @return NULL 
 	*/
@@ -77,6 +85,8 @@ class POSTGRES_TABLE_META{
 	
 	/**
 	* DESCRIPTOR: Get the "private" dbType
+	* 
+	* @access public
 	* @param	NULL
 	* @return string $dbType 
 	*/
@@ -86,6 +96,8 @@ class POSTGRES_TABLE_META{
 	
 	/**
 	* DESCRIPTOR: IE: Stores meta data for table in a traversable form
+	*
+	* @access public
 	* @param	String $DSN
 	* @param	String $tableName
 	* @param	mixed $connectionObject
@@ -140,6 +152,8 @@ class POSTGRES_TABLE_META{
 	}
 	/**
 	* DESCRIPTOR: check if the DB connection is valid to what we want to do
+	* 
+	* @access private
 	* @param mixed $data 
 	* @return bool $valid 
 	*/
@@ -155,7 +169,9 @@ class POSTGRES_TABLE_META{
 		return $valid;
 	}
 	/**
-	* DESCRIPTOR: IE: Stores meta data for table in a traversable form
+	* DESCRIPTOR: setProperties
+	* 
+	* @access private
 	* @param mixed $data 
 	* @return NULL 
 	*/
@@ -233,7 +249,9 @@ class POSTGRES_TABLE_META{
 		#$this->errors[] = '';
 	}
 	/**
-	* DESCRIPTOR: IE: Stores meta data for table in a traversable form
+	* DESCRIPTOR: getTableProperties
+	* 
+	* @access public
 	* @param mixed $data 
 	* @return NULL 
 	*/
@@ -246,6 +264,8 @@ class POSTGRES_TABLE_META{
 	}
 	/**
 	* DESCRIPTOR: gets the primary key from the data set in "tableProperties"
+	* 
+	* @access public
 	* @param mixed $data 
 	* @return NULL 
 	*/

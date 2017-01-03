@@ -40,18 +40,21 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	private $host = '';
 	
 	/**
+	* username
 	 * @access private 
 	 * @var string
 	 */
 	private $username = '';
 	
 	/**
+	* password
 	 * @access private 
 	 * @var string
 	 */
 	private $password = '';
 	
 	/**
+	* database
 	 * @access private 
 	 * @var string
 	 */
@@ -65,11 +68,13 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	public $connection;
 	
 	/**
+	* persistent
 	 * @access private 
 	 * @var bool
 	 */
 	private $persistent =false;
 	/**
+	* force_new
 	 * @access private 
 	 * @var bool
 	 */
@@ -80,6 +85,7 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	/**
 	 * Constructor
 	 * 
+	 * @access public
 	 * @param	array value (connection info)
 	 * @param	bool persistent
 	 * @return	NULL
@@ -128,6 +134,8 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	}
 	/***
 	* DESCRIPTOR: Get the "private" dbType
+	* 
+	* @access public
 	* @param	NULL
 	* @return string dbType 
 	*/
@@ -137,7 +145,8 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	/**
 	* DESCRIPTOR: This sets a connection resource
 	* pass TRUE/FALSE OR 'true' from ini [config.dbConnectionPool.ini]
-	*
+	* 
+	* @access public
 	* @param mixed persistent  
 	* @return NULL 
 	*/
@@ -235,6 +244,8 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	
 	/**
 	* DESCRIPTOR: This checks if a connection resource is persistent
+	* 
+	* @access public
 	* @param null 
 	* @return bool  
 	*/
@@ -246,6 +257,7 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	/**
 	* DESCRIPTOR: VERIFIES A CONNECTION
 	* 
+	* @access public
 	* @param null 
 	* @return bool  
 	*/
@@ -268,6 +280,7 @@ class POSTGRES_connector implements \JCORE\DATA\API\DATA_API_INTERFACE{
 	* would rather not send the query (its unneeded for functionality)
 	* but we do want to know what happened if the convert to array failed
 	* 
+	* @access public
 	* @param mixed result
 	* @param string query
 	* @return array  
