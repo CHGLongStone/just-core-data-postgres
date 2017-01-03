@@ -1,0 +1,38 @@
+{
+	"name" : "just-core/data-postgres",
+	"description" : "Basic Postgres DB connector",
+	"license" : "GNU",
+	"keywords" : [
+		"just-core",
+		"Service Oriented Architechture",
+		"Enterprise",
+		"HA",
+		"Framework",
+		"http",
+		"database",
+		"postgres",
+		"presentation layer",
+	 	"optimization"
+	],
+	"version" : "0.*",
+	"homepage" : "https://github.com/CHGLongStone/just-core-data-postgres",
+	"require" : {
+		"php" : ">=5.3.3",
+		"just-core/foundation" : "dev-master",
+	},
+	"suggest": {
+		"just-core/foundation": "PHP Enterprise (HA) High Availability Framework, develop quick and simple, deploy quick and consistent",
+		"just-core/scripts": "management scripts for the just-core eco system, basic release management stuff, db syncronization some other things",
+		"just-core/stub": "Stub application for the just-core eco system, see how simple it is...",
+		"just-core/auth-login": "Authentication Page Plugin for the just-core eco system",
+		"just-core/auth-page": "Page White/Black list Plugin for the just-core eco system",
+		"just-core/dao-orm": "Object Relational Manager Stub extends Data Access Object for the just-core eco system",
+		"just-core/http-optimization": "Static asset management, js, css etc. Compile to reduce http request load requests, minify to reduce http load times",
+		"just-core/metronic": "support for metronic templates in the just-core eco system"
+	},
+	"autoload" : {
+		"classmap" : [
+			"SERVICES"
+		]
+	}
+}
