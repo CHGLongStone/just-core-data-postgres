@@ -15,7 +15,7 @@
 	 	"optimization"
 	],
 	"version" : "0.*",
-	"homepage" : "https://github.com/CHGLongStone/just-core-data-postgres",
+	"homepage" : "https://chglongstone.github.io/just-core-data-postgres",
 	"require" : {
 		"php" : ">=5.3.3",
 		"just-core/foundation" : "dev-master"
