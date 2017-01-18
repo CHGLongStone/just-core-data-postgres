@@ -1,9 +1,9 @@
 <?php
 /**
  * POSTGRES_TABLE_META
+ * 
  * @author		Jason Medland<jason.medland@gmail.com>
- * @package		JCORE
- * @subpackage	DATA\API
+ * @package		JCORE\DATA\API\POSTGRES
  */
 namespace JCORE\DATA\API\POSTGRES;
 use JCORE\EXCEPTION\DATA_Exception as DATA_Exception;

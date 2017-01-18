@@ -4,11 +4,11 @@
  * 
  *
  * @author		Jason Medland<jason.medland@gmail.com>
- * @package	JCORE
- * @subpackage DATA
+ * @package	JCORE\DATA\API\POSTGRES
+ * 
  */
 
-namespace JCORE\DATA\API\MySQL;
+namespace JCORE\DATA\API\POSTGRES;
 use JCORE\EXCEPTION\DATA_Exception as DATA_Exception;
 use JCORE\EXCEPTION\networkException as networkException;
 /**
