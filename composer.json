@@ -1,7 +1,7 @@
 {
 	"name" : "just-core/data-postgres",
 	"description" : "Basic Postgres DB connector",
-	"license" : "GNU",
+	"license" : "GPL-3.0-or-later",
 	"keywords" : [
 		"just-core",
 		"Service Oriented Architechture",
